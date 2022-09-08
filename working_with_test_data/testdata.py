@@ -20,11 +20,11 @@ def format_resp_user(user):
     return tru_user
 
 """Считывание данных по пользователям из файла и сохранение в переменную"""
-with open("data/users.json",  'r', newline='', encoding='utf-8') as users_file:
+with open("file_data/users.json", 'r', newline='', encoding='utf-8') as users_file:
     users = json.loads(users_file.read())
 
 """Считывание данных по книгам из файла и сохранение в переменную"""
-with open("data/books.csv",  'r', newline='', encoding='utf-8') as books_file:
+with open("file_data/books.csv", 'r', newline='', encoding='utf-8') as books_file:
     reader = DictReader(books_file)
     books = []
     for row in reader:
@@ -49,7 +49,6 @@ while book_index != len(books) - 1:
     resp_users_list[user_index]["books"].append(user_book)
     user_index += 1
     book_index += 1
-
 
 """Запись в результирующий файл"""
 with open("result.json",  'w', newline='', encoding='utf-8') as results_file:
